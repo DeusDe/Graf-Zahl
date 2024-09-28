@@ -25,9 +25,17 @@ def check_inclusions(str_num):
             if str(inc) not in str_num:
                 return False
         return True
-    
+
+    def check_couple_inclusions():
+        is_couple_included = False
+        for couple in couple_included:
+            for inc in couple_included[couple]:
+                if str(inc) in str_num:
+                    is_couple_included = True
+        return is_couple_included
+
     #Ausführung der beiden sup Funktionen
-    return check_exclusions()  and check_inclusions()
+    return check_exclusions()  and check_inclusions() and check_couple_inclusions()
 
 #Überprüfung der Teilbarkeit
 def check_divisivility(num):
@@ -62,6 +70,7 @@ def num_loop(min,max):
 
 not_included  = [1,4] #Exkludierte Zahlen
 is_included   = []    #Inkludierte Zahlen
+couple_included = {1:[2,5]} #Inkludierte Couple Zahlen (Eine der beiden zahlen muss existieren)
 
 not_divisible = [20] #Definitiv nicht Teilbar durch
 is_divisible  = [2] #Muss Teilbar sein durch
